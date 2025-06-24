@@ -27,8 +27,8 @@ namespace FP_PBO
         private void InitializeControls()
         {
 
-            int buttonWidth = 170;
-            int buttonHeight = 50;
+            int buttonWidth = 190;
+            int buttonHeight = 60;
             int buttonGap = 20;
             int formWidth = 800;
             int formHeight = 600;

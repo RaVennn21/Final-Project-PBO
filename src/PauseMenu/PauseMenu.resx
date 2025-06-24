@@ -117,38 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="28256" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\28256.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Back" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\back.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="background" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\background.jpg;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Exit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="IdlePlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\IdlePlayer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Inven" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Inven.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Keycard" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Keycard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\pause.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Player" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Player.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="Point" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\Point.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="SecondLavel" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\SecondLavel.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
 </root>

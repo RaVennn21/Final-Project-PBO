@@ -10,14 +10,16 @@ namespace FP_PBO
         private Button Continue;
         private Button Inventory;
         private Button Save;
-        private Button exitButton;
+        private ExitButton _exitButton;
+        public List<Item> _inventoryItems;
 
         private Tombol _tombol;
 
-        public PauseMenu()
+        public PauseMenu(List<Item> ItemInventory)
         {
             InitializeLevel();
             InitializeControls();
+            _inventoryItems = ItemInventory;
         }
 
         private void InitializeLevel()
@@ -30,8 +32,8 @@ namespace FP_PBO
 
         private void InitializeControls()
         {
-            int buttonWidth = 170;
-            int buttonHeight = 50;
+            int buttonWidth = 190;
+            int buttonHeight = 60;
             int buttonGap = 20;
             int formWidth = 800;
             int formHeight = 600;
@@ -71,15 +73,9 @@ namespace FP_PBO
             Save.Click += Save_Click;
             Controls.Add(Save);
 
-            exitButton = new Button
-            {
-                Text = "Exit",
-                Location = new Point(startX, startY + (buttonHeight + buttonGap) * 3),
-                Size = new Size(buttonWidth, buttonHeight),
-                Font = new Font("Segoe UI", 14, FontStyle.Regular)
-            };
-            exitButton.Click += ExitButton_Click;
-            Controls.Add(exitButton);
+            _exitButton = new ExitButton(new Point(startX, startY + (buttonHeight + buttonGap) * 3));
+            Controls.Add(_exitButton.GetPictureBox());
+            _exitButton.GetPictureBox().Click += ExitButton_Click;
 
             KeyDown += OnKeyDown;
         }
@@ -94,7 +90,7 @@ namespace FP_PBO
         }
         private void Inventory_Click(object sender, EventArgs e)
         {
-            InventoryMenu inventoryMenu = new InventoryMenu();
+            InventoryMenu inventoryMenu = new InventoryMenu(_inventoryItems);
             inventoryMenu.FormClosed += (s, args) => Show();
             inventoryMenu.Show();
             Hide();

@@ -16,6 +16,7 @@ namespace FP_PBO
 
         protected PictureBox _ButtonPictureBox;
         protected Image _ButtonImage;
+        public List<Item> _inventoryItems;
 
         public PictureBox GetPictureBox() => _ButtonPictureBox;
         public Tombol()
@@ -41,8 +42,8 @@ namespace FP_PBO
 
     public class ExitButton : Tombol
     {
-        private const int ButtonWidth = 170;
-        private const int ButtonHeight = 50;
+        private const int ButtonWidth = 190;
+        private const int ButtonHeight = 60;
 
         public ExitButton(Point startPosition)
         {
@@ -56,14 +57,14 @@ namespace FP_PBO
                 Location = startPosition,
                 BackColor = Color.Transparent,
                 Image = _ButtonImage,
-                SizeMode = PictureBoxSizeMode.Zoom
+                
             };
         }
     }
 
     public class PauseButton : Tombol
     {
-        public PauseButton(Point startPosition)
+        public PauseButton(Point startPosition, List<Item> InventoryItems)
         {
             using (MemoryStream ms = new MemoryStream(Resource1.Pause))
             {
@@ -77,12 +78,13 @@ namespace FP_PBO
                 Image = _ButtonImage,
                 SizeMode = PictureBoxSizeMode.Zoom
             };
+            _inventoryItems = InventoryItems;
         }
         public override void Press(Keys e, object sender)
         {
             if (e == Keys.Escape)
             {
-                PauseMenu pauseMenu = new PauseMenu();
+                PauseMenu pauseMenu = new PauseMenu(_inventoryItems);
                 pauseMenu.FormClosed += (s, args) => ((Form)sender).Show();
                 pauseMenu.Show();
                 ((Form)sender).Hide();
@@ -93,8 +95,9 @@ namespace FP_PBO
     public class InventoryButton : Tombol
     {
         private const int ButtonWidth = 125;
-        private const int ButtonHeight = 75;
-        public InventoryButton(Point startPosition)
+        private const int ButtonHeight = 85;
+        public List<Item> _inventoryItems;
+        public InventoryButton(Point startPosition,List<Item> Inven)
         {
             using (MemoryStream ms = new MemoryStream(Resource1.Inven))
             {
@@ -106,15 +109,16 @@ namespace FP_PBO
                 Location = startPosition,
                 BackColor = Color.Transparent,
                 Image = _ButtonImage,
-                SizeMode = PictureBoxSizeMode.Zoom
             };
+
+            _inventoryItems = Inven;
         }
 
         public override void Press(Keys e, object sender)
         {
             if (e == Keys.E)
             {
-                InventoryMenu inventoryMenu = new InventoryMenu();
+                InventoryMenu inventoryMenu = new InventoryMenu(_inventoryItems);
                 inventoryMenu.FormClosed += (s, args) => ((Form)sender).Show();
                 inventoryMenu.Show();
                 ((Form)sender).Hide();

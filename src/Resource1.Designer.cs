@@ -83,9 +83,9 @@ namespace FP_PBO {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] Briefcase {
+        internal static byte[] background {
             get {
-                object obj = ResourceManager.GetObject("Briefcase", resourceCulture);
+                object obj = ResourceManager.GetObject("background", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -103,9 +103,29 @@ namespace FP_PBO {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] IdlePlayer {
+            get {
+                object obj = ResourceManager.GetObject("IdlePlayer", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Inven {
             get {
                 object obj = ResourceManager.GetObject("Inven", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Keycard {
+            get {
+                object obj = ResourceManager.GetObject("Keycard", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -123,9 +143,9 @@ namespace FP_PBO {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] rpg_sprite_walk {
+        internal static byte[] Player {
             get {
-                object obj = ResourceManager.GetObject("rpg_sprite_walk", resourceCulture);
+                object obj = ResourceManager.GetObject("Player", resourceCulture);
                 return ((byte[])(obj));
             }
         }
@@ -133,9 +153,19 @@ namespace FP_PBO {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] school_bag {
+        internal static byte[] Point {
             get {
-                object obj = ResourceManager.GetObject("school-bag", resourceCulture);
+                object obj = ResourceManager.GetObject("Point", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] SecondLavel {
+            get {
+                object obj = ResourceManager.GetObject("SecondLavel", resourceCulture);
                 return ((byte[])(obj));
             }
         }
