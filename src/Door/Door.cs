@@ -1,4 +1,5 @@
 ﻿
+using FP_PBO.Puzzle;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -114,6 +115,51 @@ namespace FP_PBO.Door
                     Press.Visible = false;
                     ((Form)sender).Hide();
                     level1.Show();
+                }
+            }
+            else
+            {
+                Press.Visible = false;
+            }
+        }
+    }
+    public class PuzzleCable : Door
+    {
+        public PuzzleCable(Point startPosition, List<Item> inventoryItems)
+            : base(startPosition, inventoryItems)
+        {
+            _DoorPictureBox = new PictureBox
+            {
+                Size = new Size(DoorWidth, DoorHeight),
+                Location = startPosition,
+                BackColor = Color.Transparent,
+            };
+            _inventoryItems = inventoryItems;
+            Press = new Label
+            {
+                Text = "Press F to open Cable Management",
+                Location = new Point(650, 100),
+                ForeColor = Color.Black,
+                BackColor = Color.White,
+                Visible = false
+            };
+        }
+        private bool done = false;
+        public void OpenCable(Keys e, object sender, Point player)
+        {
+            if (_DoorPictureBox.Visible == true && Math.Sqrt(Math.Pow(player.X - _DoorPictureBox.Location.X, 2) + Math.Pow(player.Y - _DoorPictureBox.Location.Y, 2)) < 100)
+            {
+                Press.Visible = true;
+                if (e == Keys.F && !done)
+                {
+                    Kabel cable = new Kabel();
+                    Press.Visible = false;
+                    cable.Show();
+                    done = true;
+                }
+                else if (e == Keys.F && done)
+                {
+                    MessageBox.Show("You have already completed this puzzle", "Puzzle Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else

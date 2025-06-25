@@ -133,6 +133,16 @@ namespace FP_PBO {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Kabel {
+            get {
+                object obj = ResourceManager.GetObject("Kabel", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] Keycard {
             get {
                 object obj = ResourceManager.GetObject("Keycard", resourceCulture);

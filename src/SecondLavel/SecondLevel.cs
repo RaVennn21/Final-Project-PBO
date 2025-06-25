@@ -28,7 +28,9 @@ namespace FP_PBO
         private ItemDrop ItemDrop;
         private PictureBox _playerPictureBox;
         private Pointer DoorPointer;
+        private Pointer PuzzlePointer;
         private Lv2Door Lv2Door;
+        private PuzzleCable puzzleCable;
         private void InitializeLevel()
         {
             //Main form
@@ -70,9 +72,20 @@ namespace FP_PBO
             Controls.Add(DoorPointer.GetPictureBox());
             DoorPointer.GetPictureBox().BringToFront();
 
+            //Lv2Door
             Lv2Door = new Lv2Door(new Point(750, 410), _inventoryItems);
             Controls.Add(Lv2Door.GetPictureBox());
             Controls.Add(Lv2Door.GetPressLabel());
+
+            // Puzzle Cable
+            puzzleCable = new PuzzleCable(new Point(80,125), _inventoryItems);
+            Controls.Add(puzzleCable.GetPictureBox());
+            Controls.Add(puzzleCable.GetPressLabel());
+
+            PuzzlePointer = new Pointer(new Point(80, 95));
+            Controls.Add(PuzzlePointer.GetPictureBox());
+            PuzzlePointer.GetPictureBox().BringToFront();
+
 
             KeyDown += OnKeyDown;
             KeyUp += OnKeyUp;
@@ -122,6 +135,8 @@ namespace FP_PBO
             _pause.Press(e.KeyCode, sender);
             _inventoryButton.Press(e.KeyCode, sender);
             Lv2Door.openDoor(e.KeyCode, sender, _player.WorldPosition, _firstLavel);
+
+            puzzleCable.OpenCable(e.KeyCode, sender,_player.WorldPosition);
         }
 
         private void OnKeyUp(object sender, KeyEventArgs e)

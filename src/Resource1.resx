@@ -139,6 +139,9 @@
   <data name="Inven" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Inven.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Kabel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Kabel.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="Keycard" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Keycard.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
