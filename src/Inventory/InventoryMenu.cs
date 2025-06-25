@@ -16,6 +16,7 @@ namespace FP_PBO
         public InventoryMenu(List<Item> InventoryItems)
         {
             _inventoryItems = InventoryItems ?? new List<Item>();
+            KeyPreview = true;
             InitializeInventory();
             DisplayItems();
         }
@@ -64,9 +65,12 @@ namespace FP_PBO
 
             for (int i = 0; i < _inventoryItems.Count; i++)
             {
+
                 var item = _inventoryItems[i];
                 int row = i / itemRow;
                 int col = i % itemRow;
+
+
 
                 Button ItemButton = new Button
                 {
@@ -78,6 +82,7 @@ namespace FP_PBO
                 };
                 Controls.Add(ItemButton);
                 ItemButton.Click += DisplayItemDescription;
+
             }
             KeyDown += OnKeyDown;
         }

@@ -130,6 +130,9 @@
   <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\Exit.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Flashlight" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Flashlight.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="IdlePlayer" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\IdlePlayer.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -150,5 +153,8 @@
   </data>
   <data name="SecondLavel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\SecondLavel.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Start" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\Start.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

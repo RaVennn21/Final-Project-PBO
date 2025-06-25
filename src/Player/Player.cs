@@ -9,8 +9,8 @@ namespace FP_PBO
 {
     public class Player
     {
-        private const int PlayerWidth = 80;
-        private const int PlayerHeight = 106;
+        private int PlayerWidth = 80;
+        private int PlayerHeight = 106;
         private const int TotalFrames = 6;
 
         private PictureBox _playerPictureBox;
@@ -19,9 +19,12 @@ namespace FP_PBO
         private int _currentFrame;
         private int _currentRow;
         private bool _isMoving;
+        private int Top,Left,Right,Bottom;
 
-        public Player(Point startPosition)
+        public Player(Point startPosition,int width, int hight,int top,int left, int right, int bottom)
         {
+            PlayerHeight = hight;
+            PlayerWidth = width;
             using (MemoryStream ms = new MemoryStream(Resource1.Player))
             {
                 _spriteSheet = Image.FromStream(ms);
@@ -30,6 +33,10 @@ namespace FP_PBO
             {
                 _idleSpriteSheet = Image.FromStream(ms);
             }
+            Top = top;
+            Left = left;
+            Right = right;
+            Bottom = bottom;
 
             _currentFrame = 0;
             _currentRow = 0;
@@ -59,28 +66,26 @@ namespace FP_PBO
             int speed = 10;
             _isMoving = true;
 
-            // Store the original position
             Point originalPosition = _playerPictureBox.Location;
 
-            // Calculate the new position based on the key
             switch (key)
             {
                 case Keys.S:
-                    if (_playerPictureBox.Bottom < boundary.Height)
+                    if (_playerPictureBox.Bottom < Bottom)
                         _playerPictureBox.Top += speed;
                     break;
                 case Keys.W:
-                    if (_playerPictureBox.Bottom > 530 )
+                    if (_playerPictureBox.Bottom > Top )
                         _playerPictureBox.Top -= speed;
                     break;
                 case Keys.A:
                     _currentRow = 1;
-                    if (_playerPictureBox.Left > 0)
+                    if (_playerPictureBox.Left > Left)
                         _playerPictureBox.Left -= speed;
                     break;
                 case Keys.D:
                     _currentRow = 0;
-                    if (_playerPictureBox.Right < boundary.Width)
+                    if (_playerPictureBox.Right < Right)
                         _playerPictureBox.Left += speed;
                     break;
                 default:
@@ -88,12 +93,11 @@ namespace FP_PBO
                     break;
             }
 
-            // Check for collision with any item drop
+          
             foreach (var bounds in itemDropBounds)
             {
                 if (_playerPictureBox.Bounds.IntersectsWith(bounds))
                 {
-                    // Collision detected, revert to original position
                     _playerPictureBox.Location = originalPosition;
                     break;
                 }

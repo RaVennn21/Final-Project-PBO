@@ -39,6 +39,26 @@ namespace FP_PBO
         }
 
     }
+    public class StartButton : Tombol
+    {
+        private const int ButtonWidth = 190;
+        private const int ButtonHeight = 60;
+        public StartButton(Point startPosition)
+        {
+            using (MemoryStream ms = new MemoryStream(Resource1.Start))
+            {
+                _ButtonImage = Image.FromStream(ms);
+            }
+            _ButtonPictureBox = new PictureBox
+            {
+                Size = new Size(ButtonWidth, ButtonHeight),
+                Location = startPosition,
+                BackColor = Color.Transparent,
+                Image = _ButtonImage,
+                SizeMode = PictureBoxSizeMode.Zoom
+            };
+        }
+    }
 
     public class ExitButton : Tombol
     {
@@ -90,6 +110,8 @@ namespace FP_PBO
                 ((Form)sender).Hide();
             }
         }
+        
+
     }
 
     public class InventoryButton : Tombol
@@ -124,6 +146,7 @@ namespace FP_PBO
                 ((Form)sender).Hide();
             }
         }
+        
     }
 
     public class BackButton : Tombol

@@ -6,9 +6,11 @@ namespace FP_PBO
 {
     public class MainForm : Form
     {
-        private Button startGameButton;
+
         private Tombol _tombol;
         private ExitButton _exitButton;
+        private StartButton _startButton;
+        private Label _titleLabel;
 
         public MainForm()
         {
@@ -22,6 +24,16 @@ namespace FP_PBO
             Size = new Size(800, 600);
             StartPosition = FormStartPosition.CenterScreen;
             this.KeyPreview = true;
+
+            _titleLabel = new Label
+            {
+                Text = "A Toxic Environment",
+                Font = new Font("Segoe UI", 24, FontStyle.Bold),
+                Location = new Point(250, 75),
+                AutoSize = true,
+                ForeColor = Color.Black
+            };
+            Controls.Add(_titleLabel);
         }
 
         private void InitializeControls()
@@ -33,18 +45,13 @@ namespace FP_PBO
             int formWidth = 800;
             int formHeight = 600;
 
+
             int startX = (formWidth - buttonWidth) / 2;
             int startY = (formHeight - (2 * buttonHeight + 1 * buttonGap)) / 2;
 
-            startGameButton = new Button
-            {
-                Text = "Start Game",
-                Location = new Point(startX, startY),
-                Size = new Size(buttonWidth, buttonHeight),
-                Font = new Font("Segoe UI", 14, FontStyle.Regular)
-            };
-            startGameButton.Click += StartGameButton_Click;
-            Controls.Add(startGameButton);
+            _startButton = new StartButton(new Point(startX, startY));
+            Controls.Add(_startButton.GetPictureBox());
+            _startButton.GetPictureBox().Click += StartGameButton_Click;
 
             _exitButton = new ExitButton(new Point(startX, startY + (buttonHeight + buttonGap) * 1));
             Controls.Add(_exitButton.GetPictureBox());

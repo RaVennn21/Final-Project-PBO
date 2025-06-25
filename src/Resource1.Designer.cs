@@ -103,6 +103,16 @@ namespace FP_PBO {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] Flashlight {
+            get {
+                object obj = ResourceManager.GetObject("Flashlight", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] IdlePlayer {
             get {
                 object obj = ResourceManager.GetObject("IdlePlayer", resourceCulture);
@@ -166,6 +176,16 @@ namespace FP_PBO {
         internal static byte[] SecondLavel {
             get {
                 object obj = ResourceManager.GetObject("SecondLavel", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Start {
+            get {
+                object obj = ResourceManager.GetObject("Start", resourceCulture);
                 return ((byte[])(obj));
             }
         }

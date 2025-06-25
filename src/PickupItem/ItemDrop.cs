@@ -23,7 +23,7 @@ namespace FP_PBO
             _inventoryItems = InventoryItem;
 
             _itemPictureBox = new PictureBox
-                {
+            {
                 Name = item.Name,
                 Size = new Size(50, 50),
                 Image = item._image,
@@ -40,6 +40,7 @@ namespace FP_PBO
                 BackColor = Color.White,
                 Visible = false
             };
+
         }
         public Rectangle GetBounds()
         {
@@ -60,7 +61,7 @@ namespace FP_PBO
                     press.Visible = false;
                     _itemPictureBox.Visible = false;
                     _inventoryItems.Add(_item);
-                }    
+                }
             }
             else
             {

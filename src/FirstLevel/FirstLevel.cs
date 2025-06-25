@@ -44,7 +44,7 @@ namespace FP_PBO
             BackgroundImageLayout = ImageLayout.Center;
 
             // Player
-            _player = new Player(new Point(PlayerInitialPositionX, PlayerInitialPositionY));
+            _player = new Player(new Point(PlayerInitialPositionX, PlayerInitialPositionY),80,106,506,0,ClientSize.Width,ClientSize.Height);
             _playerPictureBox = _player.GetPictureBox();
             typeof(PictureBox).GetProperty("DoubleBuffered", System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic)
                 ?.SetValue(_playerPictureBox, true, null);
@@ -65,10 +65,12 @@ namespace FP_PBO
             Controls.Add(_inventoryButton.GetPictureBox());
             _inventoryButton.GetPictureBox().Click += InventoryButton_Click;
 
+            // Door Pointer
             DoorPointer = new Pointer(new Point(140, 395));
             Controls.Add(DoorPointer.GetPictureBox());
             DoorPointer.GetPictureBox().BringToFront();
 
+            // Level 1 Door
             Lv1Door = new Lv1Door(new Point(140, 475), _inventoryItems);
             Controls.Add(Lv1Door.GetPictureBox());
             Controls.Add(Lv1Door.GetPressLabel());
@@ -110,7 +112,7 @@ namespace FP_PBO
             _player.StopWalking();
         }
 
-        private void PauseButton_Click(object sender, EventArgs e)
+        public void PauseButton_Click(object sender, EventArgs e)
         {
             PauseMenu pauseMenu = new PauseMenu(_inventoryItems);
             pauseMenu.FormClosed += (s, args) => Show();
@@ -118,7 +120,7 @@ namespace FP_PBO
             Hide();
         }
 
-        private void InventoryButton_Click(object sender, EventArgs e)
+        public void InventoryButton_Click(object sender, EventArgs e)
         {
             InventoryMenu inventoryMenu = new InventoryMenu(_inventoryItems);
             inventoryMenu.FormClosed += (s, args) => Show();

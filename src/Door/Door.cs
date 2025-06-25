@@ -63,8 +63,8 @@ namespace FP_PBO.Door
                         {
                             hasKeycard = true;
                             Press.Visible = false;
-                            SecondLevel secondLevel = new SecondLevel(_inventoryItems);
-                            secondLevel.FormClosed += (s, args) => ((Form)sender).Show();
+                            SecondLevel secondLevel = new SecondLevel(_inventoryItems,((Form)sender));
+                            secondLevel.FormClosing += (s, args) => ((Form)sender).Show();
                             secondLevel.Show();
                             ((Form)sender).Hide();
                             break;
@@ -74,6 +74,46 @@ namespace FP_PBO.Door
                     {
                         MessageBox.Show("You need Keycard Lv. 1 to open this door", "Door Locked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+                }
+            }
+            else
+            {
+                Press.Visible = false;
+            }
+        }
+    }
+    public class Lv2Door : Door
+    {
+        public Lv2Door(Point startPosition, List<Item> inventoryItems)
+            : base(startPosition, inventoryItems)
+        {
+            _DoorPictureBox = new PictureBox
+            {
+                Size = new Size(DoorWidth, DoorHeight),
+                Location = startPosition,
+                BackColor = Color.Transparent,
+            };
+            _inventoryItems = inventoryItems;
+            Press = new Label
+            {
+                Text = "Press F to open door",
+                Location = new Point(650, 100),
+                ForeColor = Color.Black,
+                BackColor = Color.White,
+                Visible = false
+            };
+        }
+
+        public void openDoor(Keys e, object sender, Point player,Form level1)
+        {
+            if (_DoorPictureBox.Visible == true && Math.Sqrt(Math.Pow(player.X - _DoorPictureBox.Location.X, 2) + Math.Pow(player.Y - _DoorPictureBox.Location.Y, 2)) < 100)
+            {
+                Press.Visible = true;
+                if (e == Keys.F)
+                {
+                    Press.Visible = false;
+                    ((Form)sender).Hide();
+                    level1.Show();
                 }
             }
             else
